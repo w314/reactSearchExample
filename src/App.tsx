@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 
 function App() {
   // store items
@@ -11,7 +11,11 @@ function App() {
   const newItemRef = useRef<HTMLInputElement>(null)
 
   // filter items based on query string
-  const filteredItems = items.filter(item => item.toLowerCase().includes(filter.toLowerCase()))
+  // use useMemo() to prevent it being recalculated when it is not necessary
+  const filteredItems = useMemo(
+    () => items.filter(item => item.toLowerCase().includes(filter.toLowerCase())), 
+    [filter, items]
+  )
 
   // handle when Add button is clicked
   const onAddNewItem = (event: React.MouseEvent<HTMLButtonElement>) => {
