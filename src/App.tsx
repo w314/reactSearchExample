@@ -4,19 +4,29 @@ import { useState, useRef } from 'react';
 function App() {
 
   const [items, setItems] = useState(['one', 'two', 'three', 'four'])
-  // const newItem: string = useRef(itemName)
   const [filter, setFilter] = useState('')
+  
+  const newItemRef = useRef<HTMLInputElement>(null)
+
+  const onAddNewItem = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    const item = newItemRef.current?.value ? newItemRef.current.value : null
+    if (!item) return
+    setItems((currentItems) => [...currentItems, item])
+    setFilter('')
+    console.log(filter)
+  }
 
   return (
     <>
     <div>
       <label htmlFor="filter">Search:</label>
-      <input type="text" id="filter" onChange={(event) => setFilter(event.target.value)} />
+      <input type="search" id="filter" value={filter} onChange={(event) => setFilter(event.target.value)} />
     </div>
     <div>
       <label htmlFor="newItem">New Item:</label>
-      <input type="text" id="newItem" />
-      {/* <button onClick={() = ()}>Add</button> */}
+      <input type="text" id="newItem" ref={newItemRef}/>
+      <button onClick={(event) => {onAddNewItem(event)}}>Add</button>
     </div>
     <h2>Items:</h2>
     <ul>
