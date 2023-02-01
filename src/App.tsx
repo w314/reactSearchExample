@@ -13,15 +13,16 @@ function App() {
     const item = newItemRef.current?.value ? newItemRef.current.value : null
     if (!item) return
     setItems((currentItems) => [...currentItems, item])
-    setFilter('')
-    console.log(filter)
+    if (newItemRef.current) {
+      newItemRef.current.value = ''
+    }
   }
 
   return (
     <>
     <div>
       <label htmlFor="filter">Search:</label>
-      <input type="search" id="filter" value={filter} onChange={(event) => setFilter(event.target.value)} />
+      <input type="search" id="filter" onChange={(event) => setFilter(event.target.value)} />
     </div>
     <div>
       <label htmlFor="newItem">New Item:</label>
