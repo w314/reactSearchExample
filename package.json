@@ -2,7 +2,7 @@
   "name": "search-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/w314/reactSearchExample.git",
+  "homepage": "https://w314.github.io/reactSearchExample",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
