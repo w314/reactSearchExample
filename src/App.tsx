@@ -17,11 +17,18 @@ const Container =styled.div({
 })
 
 
-// TODO fix grid layout
 const ThreeColumnLayout = styled.div`
   display: grid;
-  grid-template-columns: 30% 50% 20%;
+  grid-template-columns: 100px 300px 100px;
   gap: 1rem;
+`
+
+const TwoColumnGridInput = styled.input`
+  grid-column: span 2;
+`
+
+const Label = styled.label`
+  font-weight: bold
 `
 
 
@@ -60,13 +67,13 @@ function App() {
     <Container>
     {/* add option to filter item list */}
     <ThreeColumnLayout>
-      <label htmlFor="filter">Search:</label>
+      <Label htmlFor="filter">Search:</Label>
       {/* if user enters query store it in filter variable */}
-      <input type="search" id="filter" onChange={(event) => setFilter(event.target.value)} />
+      <TwoColumnGridInput type="search" id="filter" onChange={(event) => setFilter(event.target.value)} />
     {/* add option to add new items to list */}
-      <label htmlFor="newItem">New Item:</label>
-      {/* reference name of new item to store in newItemRef variable */}
-      <input type="text" id="newItem" ref={newItemRef}/>
+      <Label htmlFor="newItem">New Item:</Label>
+        {/* reference name of new item to store in newItemRef variable */}
+        <input type="text" id="newItem" ref={newItemRef}/>
       {/* if user click on Add button call onAddNewItem function */}
       <button onClick={(event) => {onAddNewItem(event)}}>Add</button>
     </ThreeColumnLayout>
