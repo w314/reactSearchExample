@@ -16,6 +16,8 @@ const Container =styled.div({
   paddingTop: '2rem',
 })
 
+
+// TODO fix grid layout
 const ThreeColumnLayout = styled.div`
   display: grid;
   grid-template-columns: 30% 50% 20%;
