@@ -30,7 +30,11 @@ const TwoColumnGridInput = styled.input`
 const Label = styled.label`
   font-weight: bold
 `
-
+const Button = styled.button`
+  &:hover {
+    color: blue;
+  }
+`
 
 function App() {
   // store items
@@ -75,7 +79,7 @@ function App() {
         {/* reference name of new item to store in newItemRef variable */}
         <input type="text" id="newItem" ref={newItemRef}/>
       {/* if user click on Add button call onAddNewItem function */}
-      <button onClick={(event) => {onAddNewItem(event)}}>Add</button>
+      <Button onClick={(event) => {onAddNewItem(event)}}>Add</Button>
     </ThreeColumnLayout>
     <h2>Items:</h2>
     {/* dispaly list of items filtered by query */}
